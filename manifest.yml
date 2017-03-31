@@ -1,0 +1,6 @@
+---
+applications:
+- name: urlrewrite-issue
+  memory: 1024M
+  buildpack: java_buildpack
+  domain: cfapps.io

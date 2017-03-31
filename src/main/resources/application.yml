@@ -1,0 +1,6 @@
+zuul:
+  ignoredServices: '*'
+  routes:
+    httpbin: 
+      path: /api/httpbin/**
+      url: http://httpbin.org
