@@ -21,8 +21,8 @@ public class UrlrewriteIssueApplication {
     public FilterRegistrationBean rewriteFilterConfig() {
         FilterRegistrationBean filter = new FilterRegistrationBean();
         filter.setName("rewriteFilter");
-        filter.setFilter(new UrlRewriteFilter());
-        filter.addInitParameter("confPath", "urlrewrite.xml");
+        filter.setFilter(urlRewriteFilter());
+//        filter.addInitParameter("confPath", "urlrewrite.xml");
 //        filter.addInitParameter("confReloadCheckInterval", "1");
         filter.addInitParameter("logLevel", "debug");
 //        filter.addInitParameter("statusPath", "/redirect");
@@ -32,4 +32,10 @@ public class UrlrewriteIssueApplication {
         filter.setOrder(3);
         return filter;
     }
+	
+	@Bean
+	public UrlRewriteFilter urlRewriteFilter(){
+		UrlRewriteFilter filter = new BootUrlRewriteFilter();
+		return filter;
+	}
 }
